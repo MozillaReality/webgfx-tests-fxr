@@ -1,0 +1,262 @@
+[
+  {
+    "type": "mouse",
+    "event": "move",
+    "parameters": {
+      "x": 0.9525,
+      "y": 0.595,
+      "button": 0
+    },
+    "frameNumber": 42
+  },
+  {
+    "type": "mouse",
+    "event": "move",
+    "parameters": {
+      "x": 0.8775,
+      "y": 0.6,
+      "button": 0
+    },
+    "frameNumber": 43
+  },
+  {
+    "type": "mouse",
+    "event": "move",
+    "parameters": {
+      "x": 0.8125,
+      "y": 0.615,
+      "button": 0
+    },
+    "frameNumber": 44
+  },
+  {
+    "type": "mouse",
+    "event": "move",
+    "parameters": {
+      "x": 0.78,
+      "y": 0.6216666666666667,
+      "button": 0
+    },
+    "frameNumber": 45
+  },
+  {
+    "type": "mouse",
+    "event": "move",
+    "parameters": {
+      "x": 0.76,
+      "y": 0.6266666666666667,
+      "button": 0
+    },
+    "frameNumber": 46
+  },
+  {
+    "type": "key",
+    "event": "down",
+    "parameters": {
+      "keyCode": 83,
+      "charCode": 0,
+      "key": "s"
+    },
+    "frameNumber": 61
+  },
+  {
+    "type": "key",
+    "event": "down",
+    "parameters": {
+      "keyCode": 83,
+      "charCode": 0,
+      "key": "s"
+    },
+    "frameNumber": 76
+  },
+  {
+    "type": "key",
+    "event": "down",
+    "parameters": {
+      "keyCode": 68,
+      "charCode": 0,
+      "key": "d"
+    },
+    "frameNumber": 77
+  },
+  {
+    "type": "key",
+    "event": "up",
+    "parameters": {
+      "keyCode": 83,
+      "charCode": 0,
+      "key": "s"
+    },
+    "frameNumber": 81
+  },
+  {
+    "type": "key",
+    "event": "down",
+    "parameters": {
+      "keyCode": 68,
+      "charCode": 0,
+      "key": "d"
+    },
+    "frameNumber": 92
+  },
+  {
+    "type": "key",
+    "event": "down",
+    "parameters": {
+      "keyCode": 68,
+      "charCode": 0,
+      "key": "d"
+    },
+    "frameNumber": 94
+  },
+  {
+    "type": "key",
+    "event": "down",
+    "parameters": {
+      "keyCode": 68,
+      "charCode": 0,
+      "key": "d"
+    },
+    "frameNumber": 96
+  },
+  {
+    "type": "key",
+    "event": "down",
+    "parameters": {
+      "keyCode": 87,
+      "charCode": 0,
+      "key": "w"
+    },
+    "frameNumber": 96
+  },
+  {
+    "type": "key",
+    "event": "down",
+    "parameters": {
+      "keyCode": 65,
+      "charCode": 0,
+      "key": "a"
+    },
+    "frameNumber": 103
+  },
+  {
+    "type": "key",
+    "event": "up",
+    "parameters": {
+      "keyCode": 68,
+      "charCode": 0,
+      "key": "d"
+    },
+    "frameNumber": 104
+  },
+  {
+    "type": "key",
+    "event": "up",
+    "parameters": {
+      "keyCode": 87,
+      "charCode": 0,
+      "key": "w"
+    },
+    "frameNumber": 104
+  },
+  {
+    "type": "key",
+    "event": "down",
+    "parameters": {
+      "keyCode": 83,
+      "charCode": 0,
+      "key": "s"
+    },
+    "frameNumber": 111
+  },
+  {
+    "type": "key",
+    "event": "up",
+    "parameters": {
+      "keyCode": 65,
+      "charCode": 0,
+      "key": "a"
+    },
+    "frameNumber": 115
+  },
+  {
+    "type": "key",
+    "event": "up",
+    "parameters": {
+      "keyCode": 83,
+      "charCode": 0,
+      "key": "s"
+    },
+    "frameNumber": 124
+  },
+  {
+    "type": "key",
+    "event": "down",
+    "parameters": {
+      "keyCode": 32,
+      "charCode": 0,
+      "key": " "
+    },
+    "frameNumber": 129
+  },
+  {
+    "type": "key",
+    "event": "up",
+    "parameters": {
+      "keyCode": 32,
+      "charCode": 0,
+      "key": " "
+    },
+    "frameNumber": 142
+  },
+  {
+    "type": "key",
+    "event": "down",
+    "parameters": {
+      "keyCode": 68,
+      "charCode": 0,
+      "key": "d"
+    },
+    "frameNumber": 171
+  },
+  {
+    "type": "key",
+    "event": "down",
+    "parameters": {
+      "keyCode": 68,
+      "charCode": 0,
+      "key": "d"
+    },
+    "frameNumber": 186
+  },
+  {
+    "type": "key",
+    "event": "down",
+    "parameters": {
+      "keyCode": 68,
+      "charCode": 0,
+      "key": "d"
+    },
+    "frameNumber": 188
+  },
+  {
+    "type": "key",
+    "event": "down",
+    "parameters": {
+      "keyCode": 68,
+      "charCode": 0,
+      "key": "d"
+    },
+    "frameNumber": 190
+  },
+  {
+    "type": "key",
+    "event": "up",
+    "parameters": {
+      "keyCode": 68,
+      "charCode": 0,
+      "key": "d"
+    },
+    "frameNumber": 191
+  }
+]
