@@ -2,7 +2,10 @@
   "name": "webgfx-tests-fxr",
   "version": "0.1.0",
   "description": "WebGFX Tests for Firefox Reality",
-  "main": "index.js",
+  "bin": {
+    "webgfx-tests-fxr": "src/index.js"
+  },
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/MozillaReality/webgfx-tests-fxr/issues"
   },
-  "homepage": "https://github.com/MozillaReality/webgfx-tests-fxr#readme"
+  "homepage": "https://github.com/MozillaReality/webgfx-tests-fxr#readme",
+  "dependencies": {
+    "adb-toolkit": "^0.4.3",
+    "chalk": "^2.4.2",
+    "child_process": "^1.0.2",
+    "commander": "^2.19.0",
+    "shelljs": "^0.8.3"
+  }
 }
