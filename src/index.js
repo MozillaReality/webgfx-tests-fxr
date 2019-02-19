@@ -53,24 +53,19 @@ program
       targetConfigs.forEach(targetConfig => {
         console.log(`Compiling Firefox Reality for target: ${chalk.yellow(targetConfig.config)} on branch ${chalk.yellow(branch)}`);
         output = shell.exec(`git checkout ${branch}`, shellOptions).stdout.trim();
-        //output = shell.exec(`./gradlew assemble${targetConfig}`, shellOptions).stdout.trim();
+        output = shell.exec(`./gradlew assemble${targetConfig.config}`, shellOptions).stdout.trim();
         if (true || output.indexOf('BUILD SUCCESSFUL')!== -1) {
           console.log(`* Compile: ${chalk.green('Succesful')}`);
-          //shell.cd('tools/tests');
           console.log(`\n${chalk.green('Executing test on generated apk')}`);
-          //node ../src/main/index.js run misc_fps,instancing --package ./master.apk,cpu_cores.apk --adb --info @oculus_godddd
-          //output = shell.exec(`webgfx-tests run misc_fps,instancing --package ~/code/FirefoxReality/app/build/outputs/apk/oculusvrArm/debug/FirefoxReality-oculusvr-arm-debug.apk --adb`, shellOptions).stdout.trim();
-          //output = shell.exec(`node ../src/main/index.js run misc_fps,instancing --package ~/code/FirefoxReality/app/build/outputs/apk/oculusvrArm/debug/FirefoxReality-oculusvr-arm-debug.apk --adb --info git@${branch}`, shellOptions).stdout.trim();
           var baseApkFolder = "app/build/outputs/apk";
           var folder = `${baseApkFolder}/${targetConfig.target}vrArm${targetConfig.arch}/${targetConfig.mode}/`;
-          var apkName = `FirefoxReality-${targetConfig.target}vr-arm${targetConfig.arch}-${targetConfig.mode}${targetConfig.mode === 'release' ? '-unsigned' : ''}.apk`;
+          var apkName = `FirefoxReality-${targetConfig.target}vr-arm${targetConfig.arch}-${targetConfig.mode}.apk`;
           var pathApk = folder + apkName;
           console.log(pathApk);
-          spawnSync('webgfx-tests', [`run misc_fps,instancing -c tools/tests --package ${pathApk} --adb --info git@${branch} --outputfile /tmp/${branch}-${targetConfig.config}.json`], { shell: true, stdio: 'inherit' });
-      
+          spawnSync('webgfx-tests', [`run misc_fps,instancing -c tools/tests --package ${pathApk} --adb --info git@${branch} --outputfile /tmp/${branch}-${targetConfig.config}.json`], { shell: true, stdio: 'inherit' });      
           shellOptions = {silent: true};
         } else {
-          console.log('ERRRORRRR', output);
+          console.log('ERROR COMPILING', output);
         }          
       });
     });
@@ -90,22 +85,3 @@ program.parse(process.argv);
 if (program.args.length === 0) {
   program.help();
 }
-
-/*
-  --branch branch1 branch2
-  --target google oculus
-  --arch all
-*/
-
-/*
-tests --branches master oculus_cpu --target google, oculus --arch 64/32
-master google/oculus 64
-oculus_cpu google/oculus 64
-*/
-
-/*
-assembleOculusvrArmDebug
-assembleOculusvrArm64Debug
-
-assembleOculusvrArmDebug
-*/
