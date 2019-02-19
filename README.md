@@ -2,7 +2,9 @@
 WebGFX Tests for FxR
 
 ## Installation
-Clone the repo inside the `FirefoxReality/tools` folder:
+Execute the following commands from the `FirefoxReality` root folder:
+
+Clone the repo into `tools/webgfx-tests-fxr`
 ```
 $ FirefoxReality > git clone https://github.com/MozillaReality/webgfx-tests-fxr.git tools/webgfx-tests-fxr
 ```
