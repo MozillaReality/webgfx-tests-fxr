@@ -24,6 +24,7 @@
     "chalk": "^2.4.2",
     "child_process": "^1.0.2",
     "commander": "^2.19.0",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.3",
+    "webgfx-tests": "^0.4.2"
   }
 }

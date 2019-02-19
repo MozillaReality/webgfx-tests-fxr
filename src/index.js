@@ -53,7 +53,7 @@ program
       targetConfigs.forEach(targetConfig => {
         console.log(`Compiling Firefox Reality for target: ${chalk.yellow(targetConfig.config)} on branch ${chalk.yellow(branch)}`);
         output = shell.exec(`git checkout ${branch}`, shellOptions).stdout.trim();
-        output = shell.exec(`./gradlew assemble${targetConfig.config}`, shellOptions).stdout.trim();
+        //output = shell.exec(`./gradlew assemble${targetConfig.config}`, shellOptions).stdout.trim();
         if (true || output.indexOf('BUILD SUCCESSFUL')!== -1) {
           console.log(`* Compile: ${chalk.green('Succesful')}`);
           console.log(`\n${chalk.green('Executing test on generated apk')}`);
@@ -62,7 +62,9 @@ program
           var apkName = `FirefoxReality-${targetConfig.target}vr-arm${targetConfig.arch}-${targetConfig.mode}.apk`;
           var pathApk = folder + apkName;
           console.log(pathApk);
-          spawnSync('webgfx-tests', [`run misc_fps,instancing -c tools/tests --package ${pathApk} --adb --info git@${branch} --outputfile /tmp/${branch}-${targetConfig.config}.json`], { shell: true, stdio: 'inherit' });      
+          //spawnSync('webgfx-tests', [`run misc_fps,instancing -c tools/tests --package ${pathApk} --adb --info git@${branch} --outputfile /tmp/${branch}-${targetConfig.config}.json`], { shell: true, stdio: 'inherit' });
+          spawnSync('npx', [`webgfx-tests run misc_fps,instancing -c tools/webgfx-tests-fxr/tests --package ${pathApk} --adb --info git@${branch} --outputfile /tmp/${branch}-${targetConfig.config}.json`], { shell: true, stdio: 'inherit' });
+          
           shellOptions = {silent: true};
         } else {
           console.log('ERROR COMPILING', output);
@@ -76,7 +78,7 @@ program
         files.push(`/tmp/${branch}-${targetConfig.config}.json`);
       });
     });
-    spawnSync('webgfx-tests', [`summary ${files.join(' ')} --groupby file`], { shell: true, stdio: 'inherit' });    
+    spawnSync('npx', [`webgfx-tests summary ${files.join(' ')} --groupby file`], { shell: true, stdio: 'inherit' });    
   });
 
   
