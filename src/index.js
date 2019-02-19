@@ -49,7 +49,7 @@ program
     targetConfigs.forEach(targetConfig => console.log(' - ' + chalk.blueBright(targetConfig.config)));
 
     branches.forEach(branch => {
-      //shell.cd('~/code/FirefoxReality');
+      shell.cd('tools/webgfx-tests-fxr');
       targetConfigs.forEach(targetConfig => {
         console.log(`Compiling Firefox Reality for target: ${chalk.yellow(targetConfig.config)} on branch ${chalk.yellow(branch)}`);
         output = shell.exec(`git checkout ${branch}`, shellOptions).stdout.trim();
@@ -57,13 +57,14 @@ program
         if (true || output.indexOf('BUILD SUCCESSFUL')!== -1) {
           console.log(`* Compile: ${chalk.green('Succesful')}`);
           console.log(`\n${chalk.green('Executing test on generated apk')}`);
-          var baseApkFolder = "app/build/outputs/apk";
+          var baseApkFolder = "../../app/build/outputs/apk";
           var folder = `${baseApkFolder}/${targetConfig.target}vrArm${targetConfig.arch}/${targetConfig.mode}/`;
           var apkName = `FirefoxReality-${targetConfig.target}vr-arm${targetConfig.arch}-${targetConfig.mode}.apk`;
           var pathApk = folder + apkName;
           console.log(pathApk);
           //spawnSync('webgfx-tests', [`run misc_fps,instancing -c tools/tests --package ${pathApk} --adb --info git@${branch} --outputfile /tmp/${branch}-${targetConfig.config}.json`], { shell: true, stdio: 'inherit' });
-          spawnSync('npx', [`webgfx-tests run misc_fps,instancing -c tools/webgfx-tests-fxr/tests --package ${pathApk} --adb --info git@${branch} --outputfile /tmp/${branch}-${targetConfig.config}.json`], { shell: true, stdio: 'inherit' });
+          //spawnSync('npx', [`webgfx-tests run misc_fps,instancing -c tools/webgfx-tests-fxr/tests --package ${pathApk} --adb --info git@${branch} --outputfile /tmp/${branch}-${targetConfig.config}.json`], { shell: true, stdio: 'inherit' });
+          spawnSync('npx', [`webgfx-tests run misc_fps,instancing -c tests --package ${pathApk} --adb --info git@${branch} --outputfile /tmp/${branch}-${targetConfig.config}.json`], { shell: true, stdio: 'inherit' });
           
           shellOptions = {silent: true};
         } else {
