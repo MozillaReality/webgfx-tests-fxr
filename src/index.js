@@ -49,11 +49,10 @@ program
     targetConfigs.forEach(targetConfig => console.log(' - ' + chalk.blueBright(targetConfig.config)));
 
     branches.forEach(branch => {
-      shell.cd('tools/webgfx-tests-fxr');
       targetConfigs.forEach(targetConfig => {
         console.log(`Compiling Firefox Reality for target: ${chalk.yellow(targetConfig.config)} on branch ${chalk.yellow(branch)}`);
         output = shell.exec(`git checkout ${branch}`, shellOptions).stdout.trim();
-        //output = shell.exec(`./gradlew assemble${targetConfig.config}`, shellOptions).stdout.trim();
+        output = shell.exec(`./gradlew assemble${targetConfig.config}`, shellOptions).stdout.trim();
         if (true || output.indexOf('BUILD SUCCESSFUL')!== -1) {
           console.log(`* Compile: ${chalk.green('Succesful')}`);
           console.log(`\n${chalk.green('Executing test on generated apk')}`);
@@ -61,10 +60,13 @@ program
           var folder = `${baseApkFolder}/${targetConfig.target}vrArm${targetConfig.arch}/${targetConfig.mode}/`;
           var apkName = `FirefoxReality-${targetConfig.target}vr-arm${targetConfig.arch}-${targetConfig.mode}.apk`;
           var pathApk = folder + apkName;
-          console.log(pathApk);
+
           //spawnSync('webgfx-tests', [`run misc_fps,instancing -c tools/tests --package ${pathApk} --adb --info git@${branch} --outputfile /tmp/${branch}-${targetConfig.config}.json`], { shell: true, stdio: 'inherit' });
           //spawnSync('npx', [`webgfx-tests run misc_fps,instancing -c tools/webgfx-tests-fxr/tests --package ${pathApk} --adb --info git@${branch} --outputfile /tmp/${branch}-${targetConfig.config}.json`], { shell: true, stdio: 'inherit' });
-          spawnSync('npx', [`webgfx-tests run misc_fps,instancing -c tests --package ${pathApk} --adb --info git@${branch} --outputfile /tmp/${branch}-${targetConfig.config}.json`], { shell: true, stdio: 'inherit' });
+          spawnSync('npx', [`webgfx-tests run misc_fps,instancing -c tests --package ${pathApk} --adb --info git@${branch} --outputfile /tmp/${branch}-${targetConfig.config}.json`], { 
+            shell: true, stdio: 'inherit',
+            cwd: 'tools/webgfx-tests-fxr'
+          });
           
           shellOptions = {silent: true};
         } else {
@@ -79,7 +81,7 @@ program
         files.push(`/tmp/${branch}-${targetConfig.config}.json`);
       });
     });
-    spawnSync('npx', [`webgfx-tests summary ${files.join(' ')} --groupby file`], { shell: true, stdio: 'inherit' });    
+    spawnSync('npx', [`webgfx-tests summary ${files.join(' ')} --groupby file`], { shell: true, stdio: 'inherit',cwd: 'tools/webgfx-tests-fxr' });    
   });
 
   
