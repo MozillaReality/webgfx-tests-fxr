@@ -53,7 +53,7 @@ program
         console.log(`Compiling Firefox Reality for target: ${chalk.yellow(targetConfig.config)} on branch ${chalk.yellow(branch)}`);
         output = shell.exec(`git checkout ${branch}`, shellOptions).stdout.trim();
         output = shell.exec(`./gradlew assemble${targetConfig.config}`, shellOptions).stdout.trim();
-        if (true || output.indexOf('BUILD SUCCESSFUL')!== -1) {
+        if (output.indexOf('BUILD SUCCESSFUL')!== -1) {
           console.log(`* Compile: ${chalk.green('Succesful')}`);
           console.log(`\n${chalk.green('Executing test on generated apk')}`);
           var baseApkFolder = "../../app/build/outputs/apk";
